@@ -79,7 +79,7 @@ Python is slow because its largely not compiled, that fundamentally cannot beat 
 # The Solution
 Python is an extremely popular language among scientists for data processing and visualization. Because of this, there are many libraries in place which perform robust and complex calculations within Python, but implemented in C (NumPy). This is how I get C-like speeds from within Python, almost.</br>
 The actual calculations being done in this program are individually quite simple, replacing any of the calcs with NumPy doesn't save much time at all.</br>
-When research ways to speed up Python, I learned about a library which is made to take NumPy code and fully compile functions as they are used, allowing for full speed comparable to C.
+When researching ways to speed up Python, I learned about a library which is made to take NumPy code and fully compile functions as they are used, allowing for full speed comparable to C.
 
 Integrating the changes finally results in a **more than 10x** speed up, which shows that this code now runs as fast or faster than a C++ implementation. This is the solution as it still stands.
 
