@@ -1,6 +1,7 @@
 import time
 import numba
 import numpy as np
+import math
 
 @numba.njit
 def make_all_rotations(num: int, N: int, L: int) -> np.ndarray[int]:
@@ -35,6 +36,14 @@ def runMain(N: int, L: int) -> int:
     print("Total unique shapes:", t)
     print(f"Time taken: {endTime-startTime:.3f}s")
 
+# The pure math solution finishes in 5e-6 seconds
+def pureMath(N: int, L: int):
+    count = -1
+    for i in range(L):
+        gcd = math.gcd(i, L)
+        count += pow(N, gcd)
+    return count // L
+
 if __name__ == "__main__":
     main(1, 1) # trivially small calc just to compile the function
-    runMain(41, 4)
+    runMain(41, 4) # 0.07s of calc time
