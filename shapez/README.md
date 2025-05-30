@@ -1,7 +1,7 @@
 # The Problem
 In a factory game about making shapes, there are a variety of outputs that exist, but they can also be rotated and still be considered equal.
 
-<img src="images/EqualShapes.png" alt="Equal shapes image" width="200"> </br>
+<img src="images/EqualShapes.png" alt="Equal shapes image" width="200"></br>
 
 A shape is represented by a `shape code` which contains 8 pieces of information broken into 4 quadrants.</br>
 Each quadrant is 2 characters, a shape and a color. In the example image above, the leftmost shape has the following code:
@@ -10,16 +10,16 @@ Rr - **R**ectangle + **r**ed</br>
 Sy - **S**pike + **y**ellow</br>
 Wb - Diamond (called **W**edge colloquially) + **b**lue</br>
 Cu - **C**ircle + **u**ncolored</br>
-<img src="images/ShapeCodes.png" alt="Unequal shapes image" width="200"> </br>
+<img src="images/ShapeCodes.png" alt="Unequal shapes image" width="200"></br>
 
 </br>
 
 Shapes are **only** equivalent if they are able to be rotated to equal each other.
 
-<img src="images/UnequalShapes.png" alt="Unequal shapes image" width="200"> </br>
+<img src="images/UnequalShapes.png" alt="Unequal shapes image" width="200"></br>
 
-The left pair of shapes are not equal because they are reflections of each other, not rotations. </br>
-The right pair of shapes are not equal because the third quad is a blue *crystal* in one while a blue shape in the other. </br>
+The left pair of shapes are not equal because they are reflections of each other, not rotations.</br>
+The right pair of shapes are not equal because the third quad is a blue *crystal* in one while a blue shape in the other.</br>
 The difference between shapes and crystals is that shapes can be uncolored while crystals cannot.
 
 In total there are 7 Colors (plus uncolored for 8), 4 Shapes, and 3 Non-shape segments:</br>
@@ -35,7 +35,7 @@ In total there are 7 Colors (plus uncolored for 8), 4 Shapes, and 3 Non-shape se
    - Ex: `Rb--cb--`.</br>
 
 More shape code examples:</br>
-<img src="images/ExampleShapes.png" alt="Unequal shapes image" width="200"> </br>
+<img src="images/ExampleShapes.png" alt="Unequal shapes image" width="200"></br>
 
 
 # The Process
@@ -54,7 +54,7 @@ To make the first solutions, I kept the idea of shape codes as strings, but repl
 Iterating through the set of characters to make all possible strings, and then counting, will over-count. This is because it doesn't account for rotational equivalences.</br>
 A shape has 4 rotational variants, but simply dividing the total count by 4 also won't work because shape rotations have overlap with each other. For example:</br>
 `Cu--Cu--` and `--Cu--Cu`</br>
-<img src="images/Rotations.png" alt="Unequal shapes image" width="200"> </br>
+<img src="images/Rotations.png" alt="Unequal shapes image" width="200"></br>
 
 So, for each shape created, I would rotate the shape to a standardized orientation (in this case the lexographical minimum) and add those standardized rotations to a set. I could then simply return the length of the set to have my answer.
 
